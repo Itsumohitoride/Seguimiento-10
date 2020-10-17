@@ -50,14 +50,40 @@ public class Championship{
 	public String showAverageTimes(){
 
 		String message = "";
+		double residue;
+		double hour;
+		double minute;
+		double second;
 
 		for(int i = 0; i<15; i++){
 
-			if(){
-				message += "El piloto "+pilot[i].getName()+" tuvo un promedio de \n";
+			if(pilot[i] != null){
+
+				residue = (pilot[i].calculateAverage() % 3600);
+				hour = ((pilot[i].calculateAverage()-residue)/3600);
+				minute = (residue/60);
+				second = (residue % 60);
+
+				message += "El piloto "+pilot[i].getName()+" tuvo un tiempo promedio de:"+hour+" horas "+minute+" minutos "+second+"segundos\n";
 			}
 
 		}
 		return message;
+	}
+
+	public int getYear(){
+		return year;
+	}
+
+	public void setYear(int year){
+		this.year = year;
+	}
+
+	public int getRaces(){
+		return races;
+	}
+
+	public void setRaces(int races){
+		this.races = races;
 	}
 }

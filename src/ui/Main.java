@@ -48,7 +48,7 @@ public class Main{
 	public void createPiloto(int races){
 
 		String verific = "si";
-		int[] scores = new int[races];
+		int[] scores = new int[champion.getRaces()];
 
 		while(verific.equalsIgnoreCase("si")){
 
