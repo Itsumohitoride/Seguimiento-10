@@ -27,6 +27,15 @@ public class Pilot{
 
 	public double calculateAverage(){
 
+		double average = 0;
+
+		for(int i = 0; i<scores.length; i++){
+			average += scores[i];
+		}
+
+		average = average/scores.length;
+		
+		return average;
 	}
 
 	public String getName(){
@@ -53,11 +62,11 @@ public class Pilot{
 		this.team = team;
 	}
 
-	public int getScores(){
+	public int[] getScores(){
 		return scores;
 	}
 
-	public void setScores(){
+	public void setScores(int[] scores){
 		this.scores = scores;
 	}
 }

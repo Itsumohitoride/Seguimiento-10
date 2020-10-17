@@ -2,7 +2,7 @@ package model;
 
 public class Championship{
 
-	//Attributte
+	//Attribute
 
 	public int year;
 	public int races;
@@ -19,25 +19,17 @@ public class Championship{
 		this.races = races;
 	}
 
-	public String addPilot(String name, int age, Team team, int[] scores){
+	public void addPilot(String name, int age, Team team, int[] scores){
 
 		boolean verific = false;
 		String message = "Piloto registrado";
 
-		for(int i = 0; i<14 && !verific; i++){
+		for(int i = 0; i<15 && verific; i++){
 
 			if(pilot[i] == null){
-				if(pilot[i].equalsIgnoreCase(Pilot.getName())){
-					message = "El piloto ya se encuentra registrado";
-				}
-				else{
-					pilot[i] = new Pilot(name, age, team, scores);
-				}
 				
+				pilot[i] = new Pilot(name, age, team, scores);
 				verific = true;
-			}
-			else{
-				message = "Ya se registraron todos los pilotos, no se pueden agregar mas";
 			}
 		}
 	}
@@ -46,7 +38,7 @@ public class Championship{
 
 		boolean verific = false;
 
-		for(int i = 0; i<14 && !verific; i++){
+		for(int i = 0; i<15 && verific; i++){
 
 			if(name.equalsIgnoreCase(pilot[i])){
 				verific = true;
@@ -57,10 +49,15 @@ public class Championship{
 
 	public String showAverageTimes(){
 
+		String message = "";
 
+		for(int i = 0; i<15; i++){
+
+			if(){
+				message += "El piloto "+pilot[i].getName()+" tuvo un promedio de \n";
+			}
+
+		}
+		return message;
 	}
-
-	public int 
-
-
 }
