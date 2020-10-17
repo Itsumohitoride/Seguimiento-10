@@ -10,14 +10,14 @@ public class Pilot{
 
 	//Attribute
 
-	private Strign name;
+	private String name;
 	private int age;
-	private Team team;
+	private String team;
 	private int[] scores;
 
 	//Method
 
-	public Pilot(String name, int age, Team team, int[] scores){
+	public Pilot(String name, int age, String team, int[] scores){
 
 		this.name = name;
 		this.age = age;
@@ -34,7 +34,7 @@ public class Pilot{
 		}
 
 		average = average/scores.length;
-		
+
 		return average;
 	}
 
@@ -70,4 +70,3 @@ public class Pilot{
 		this.scores = scores;
 	}
 }
-	

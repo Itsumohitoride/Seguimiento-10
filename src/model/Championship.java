@@ -15,16 +15,16 @@ public class Championship{
 
 	public Championship(int year, int races){
 
-		this.year = year,
+		this.year = year;
 		this.races = races;
+		pilot = new Pilot[15];
 	}
 
-	public void addPilot(String name, int age, Team team, int[] scores){
+	public void addPilot(String name, int age, String team, int[] scores){
 
 		boolean verific = false;
-		String message = "Piloto registrado";
 
-		for(int i = 0; i<15 && verific; i++){
+		for(int i = 0; i<15 && !verific; i++){
 
 			if(pilot[i] == null){
 				
@@ -38,9 +38,9 @@ public class Championship{
 
 		boolean verific = false;
 
-		for(int i = 0; i<15 && verific; i++){
+		for(int i = 0; i<15 && !verific; i++){
 
-			if(name.equalsIgnoreCase(pilot[i])){
+			if(pilot[i] != null && name.equalsIgnoreCase(pilot[i].getName())){
 				verific = true;
 			}
 		}
@@ -64,7 +64,7 @@ public class Championship{
 				minute = (residue/60);
 				second = (residue % 60);
 
-				message += "El piloto "+pilot[i].getName()+" tuvo un tiempo promedio de:"+hour+" horas "+minute+" minutos "+second+"segundos\n";
+				message += "El piloto "+pilot[i].getName()+" tuvo un tiempo promedio de: "+(int)hour+" horas "+(int)minute+" minutos "+(int)second+" segundos\n";
 			}
 
 		}
