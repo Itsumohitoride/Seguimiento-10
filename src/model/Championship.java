@@ -28,8 +28,9 @@ public class Championship{
 
 			if(pilot[i] == null){
 				
-				pilot[i] = new Pilot(name, age, team, scores);
+				pilot[i] = new Pilot(name, age, scores);
 				verific = true;
+				pilot[i].addTeam(team);
 			}
 		}
 	}
@@ -69,6 +70,14 @@ public class Championship{
 
 		}
 		return message;
+	}
+
+	public Pilot[] getPilot(){
+		return pilot;
+	}
+
+	public void setPilot(){
+		this.pilot = pilot;
 	}
 
 	public int getYear(){

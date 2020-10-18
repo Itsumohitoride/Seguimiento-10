@@ -60,7 +60,13 @@ public class Main{
 
 		switch(option){
 			case 1:
-			createPiloto();
+			if(champion.getPilot()[14] != null){
+				System.out.println("**********************************************************************");
+				System.out.println("Ya se registro el numero maximo de pilotos");
+				System.out.println("**********************************************************************");
+			}else{
+				createPiloto();
+			}
 			break;
 			case 2:
 			showPilot();
@@ -83,7 +89,9 @@ public class Main{
 
 		String verific;
 		String name;
+		String team;
 		boolean find = true;
+		boolean verificTeam = false;
 		int[] scores = new int[champion.getRaces()];
 
 		do{
@@ -98,24 +106,56 @@ public class Main{
 
 				find = champion.findPilot(name); 
 
-				if(find == true){
+				if(find){
 					System.out.println("El piloto ya se encuentra registrado, por favor ingrese otro");
 				}	
-			}while(find == true);
+			}while(find);
 
 			System.out.println("Ingrese la edad del piloto");
-			int age = lector.nextInt();lector.nextLine();
+			int age = lector.nextInt();
+			lector.nextLine();
 
-			System.out.println("Ingrese el equipo al cual pertenece el piloto");
-			String team = lector.nextLine();
+			System.out.println("\nIngrese el equipo al cual pertenece el piloto\n");
+
+			System.out.println("                        **********************                        ");
+			System.out.println("                        *  LISTA DE EQUIPOS  *                        ");
+			System.out.println("                        **********************                        ");
+			System.out.println("                        * - Scuderia Ferrari *                        ");
+			System.out.println("                        * - Mclaren F1 Team  *                        ");
+			System.out.println("                        * - Red Bull Recing  *                        ");
+			System.out.println("                        * - Mercedes Amg     *                        ");
+			System.out.println("                        * - Racing Point     *                        ");
+			System.out.println("                        * - Alfa Romeo       *                        ");
+			System.out.println("                        * - Renault          *                        ");
+			System.out.println("                        * - Williams         *                        ");
+			System.out.println("                        **********************\n                        ");
+
+			do{
+				team = lector.nextLine();
+
+				if(!team.equalsIgnoreCase("Scuderia Ferrari") && !team.equalsIgnoreCase("Mclaren F1 Team") && !team.equalsIgnoreCase("Red Bull Recing") && !team.equalsIgnoreCase("Mercedes Amg") && !team.equalsIgnoreCase("Racing Point") && !team.equalsIgnoreCase("Alfa Romeo") && !team.equalsIgnoreCase("Renault") && !team.equalsIgnoreCase("Williams")){
+					System.out.println("Nombre de equipo incorrecto, ingreselo nuevamente");
+				}
+				else{
+					verificTeam = true;
+				}
+			}while(!verificTeam);
 
 			for(int i = 0; i<champion.getRaces(); i++){
 				System.out.println("Ingrese el tiempo en segundos de la carrera #"+(i+1));
 				scores[i] = lector.nextInt();lector.nextLine();
 			}
 
-			System.out.println("Desea ingresar otro piloto (Si/No)");
-			verific = lector.nextLine();
+			if(champion.getPilot()[13] != null){
+				System.out.println("**********************************************************************");
+				System.out.println("Este es el ultimo piloto que se puede registrar");
+				System.out.println("**********************************************************************");
+				verific = "no";
+			}
+			else{
+				System.out.println("Desea ingresar otro piloto (Si/No)");
+				verific = lector.nextLine();
+			}
 
 			champion.addPilot(name,age,team,scores);
 		}while(verific.equalsIgnoreCase("Si"));
